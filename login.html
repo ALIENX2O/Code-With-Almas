@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CodeWithAlmas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="custom-coding-icon-shadowed-detailed-custom-coding-logo-free-vector.jpg" height="40px" width="30px" class="logo-img">
+                <span style="color: azure; font-size: 20px;">CodeWithAlmas</span>
+            </a>
+            <div class="nav-links">
+               <a href="development.html" class="active-nav">Development</a>
+                <a href="dsa.html">DSA</a>
+                <a href="AWS.html">AWS</a>
+                <a href="books.html">Books</a>
+                <a href="ethicalhacking.html">Cybersecurity</a>
+                <a href="software.html">Softwares</a>
+                <a href="paidcourses.html">Paid Courses</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn login-btn" style="color: var(--bright-aqua);">Login</a>
+                <a href="signup.html" class="btn signup-btn">Sign Up</a>
+            </div>
+            <button class="website-menu-button"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <section class="auth-section">
+        <div class="auth-card">
+            <h2>Login Form</h2>
+            <form action="#">
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <!-- <input type="email" placeholder="Enter your email" required> -->
+                    <input type="email" id="lEmail" placeholder="Enter your email" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+                    <!-- <input type="password" placeholder="Enter password" required> -->
+                     <input type="password" id="lPass" placeholder="Enter password" required>
+                </div>
+
+                <div style="text-align: right; margin-bottom: 10px;">
+                    <a href="forgot-password.html" style="color: #b0b0b0; font-size: 0.8rem; text-decoration: none;">Forgot password?</a>
+                </div>
+
+                <!-- <button type="submit" class="auth-btn-submit">Login</button> -->
+                <button type="button" onclick="login()" class="auth-btn-submit">Login</button>
+
+                <div class="switch-page">
+                    Not a member? <a href="signup.html">Signup now</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+    function login() {
+        // 1. Input lena
+        let email = document.getElementById('lEmail').value;
+        let password = document.getElementById('lPass').value;
+
+        // 2. File (LocalStorage) se data padhna
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // 3. C++ wala while loop aur if condition yahan 'find' ban gaya
+        let userFound = users.find(u => u.email === email && u.password === password);
+
+        if(userFound) {
+            alert("Login Successful! Welcome " + userFound.userName);
+            window.location.href = "index.html"; // Home page par bhejna
+        } else {
+            alert("Incorrect Email or Password!");
+        }
+    }
+</script>
+
+    <footer class="footer">
+        <p>&copy; 2024 CodeWithAlmas. All Rights Reserved.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,502 @@
+
+:root {
+    --dark-blue-bg: #0a0e1a;
+    --card-bg: rgba(14, 23, 43, 0.7);
+    --primary-text: #e0e0e0;
+    --bright-aqua: #00ffff;
+    --dark-aqua: #00a0a0;
+    --border-color: rgba(0, 160, 160, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #111b29;
+    background-color: var(--dark-blue-bg);
+    color: var(--primary-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dark-blue-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--dark-aqua);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bright-aqua);
+}
+
+
+.header {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    background-color: rgb(5, 5, 5);
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    color: white;
+    box-shadow: white 0px 0px 1px 2px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.logo svg {
+    transition: transform 0.5s ease;
+}
+
+.logo:hover svg {
+    transform: rotate(180deg);
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: none; 
+}
+
+@media (min-width: 1024px) {
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+    }
+}
+
+.nav-links a {
+    color: var(--primary-text);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+    justify-content: space-between;
+    background-color: rgb(16, 20, 20);
+    border-radius: 8px;
+    padding-block: 1px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--bright-aqua);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover,
+.nav-links a.active-nav {
+    color: var(--bright-aqua);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active-nav::after {
+    width: 100%;
+}
+
+
+
+.mobile-menu-button {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+@media (min-width: 1024px) {
+    .mobile-menu-button {
+        display: none;
+    }
+}
+
+.mobile-menu {
+    display: none; 
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border-color);
+}
+.mobile-menu a {
+    display: block;
+    color: var(--primary-text);
+    text-decoration: none;
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero-section, .page-title {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.hero-section h1, .page-title h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #b0b0b0;
+}
+
+.featured-categories, .content-section {
+    padding: 2rem 0;
+}
+
+.featured-categories h2, .content-section h3 {
+    font-size: 2.5rem;
+    color: var(--bright-aqua);
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.content-section h3 {
+    text-align: left;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    padding-left: 1rem;
+    border-bottom: none;
+    border-left: 4px solid var(--dark-aqua);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.category-card, .tech-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-text);
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover, .tech-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 255, 255, 0.1);
+    border-color: var(--dark-aqua);
+}
+
+
+.contact-form {
+    max-width: 700px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--bright-aqua);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #1f2937;
+    border: 1px solid #4b5563;
+    border-radius: 5px;
+    color: var(--primary-text);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--bright-aqua);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.contact-form button {
+    padding: 1rem;
+    background-color: var(--dark-aqua);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+    background-color: var(--bright-aqua);
+    color: #0a0e1a;
+    transform: translateY(-3px);
+}
+
+
+
+.footer {
+    background-color: rgba(14, 23, 43, 0.8);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    margin-top: 3rem;
+}
+
+.footer p {
+    margin-bottom: 1.5rem;
+    color: #a0a0a0;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-links a {
+    color: var(--primary-text);
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--bright-aqua);
+    transform: scale(1.2);
+}
+.mobile-menu.active {
+        display: block;
+    }
+
+
+
+
+
+
+
+
+
+
+/* --- Login & Signup Buttons Styling --- */
+
+/* By default mobile par buttons chup rahenge (jaise nav-links chupe hain) */
+.auth-buttons {
+    display: none;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Buttons ka General Style */
+.auth-buttons .btn {
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+/* Login Button - Simple Text/Transparent style */
+.auth-buttons .login-btn {
+    color: var(--primary-text);
+    background: transparent;
+    border: 1px solid transparent; /* Hover par border dikhane ke liye */
+}
+
+.auth-buttons .login-btn:hover {
+    color: var(--bright-aqua);
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+/* Sign Up Button - Highlighted (Harry style but your Theme) */
+.auth-buttons .signup-btn {
+    background-color: var(--dark-aqua); /* Aapki theme ka dark color */
+    color: white;
+    border: 1px solid var(--dark-aqua);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.auth-buttons .signup-btn:hover {
+    background-color: var(--bright-aqua); /* Hover par bright */
+    color: #0a0e1a; /* Text dark ho jaye */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.4); /* Glow effect */
+    transform: translateY(-2px);
+}
+
+/* --- Desktop View (Screen size > 1024px) --- */
+/* Jab screen badi hogi tabhi ye buttons dikhenge */
+@media (min-width: 1024px) {
+    .auth-buttons {
+        display: flex; /* Desktop par visible karo */
+    }
+    
+    /* Navbar spacing ko adjust karne ke liye */
+    .navbar {
+        gap: 1rem; /* Elements ke beech thodi jagah */
+    }
+}
+
+
+
+
+
+
+/* --- Login / Signup Page Specific CSS --- */
+
+/* Page ko center karne ke liye container */
+.auth-section {
+    min-height: 80vh; /* Screen ki height ka 80% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: radial-gradient(circle at center, #1a253a 0%, #0a0e1a 100%);
+}
+
+/* Woh Box jisme form hoga (Card Style) */
+.auth-card {
+    background: rgba(14, 23, 43, 0.9);
+    border: 1px solid var(--dark-aqua);
+    width: 100%;
+    max-width: 400px; /* Box ki chaudai */
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Upar wali colourful line (Decoration) */
+.auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--dark-aqua), var(--bright-aqua));
+}
+
+.auth-card h2 {
+    color: var(--bright-aqua);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Form ke inputs (Email/Password) */
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #b0b0b0;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: #1f2937;
+    border: 1px solid #4b5563;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--bright-aqua);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
+}
+
+/* Login/Signup Button (Gradient wala) */
+.auth-btn-submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, var(--dark-aqua), var(--bright-aqua)); /* Gradient Blue/Cyan */
+    border: none;
+    border-radius: 8px;
+    color: #0a0e1a;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 1rem;
+}
+
+.auth-btn-submit:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Niche wala link (Signup now) */
+.switch-page {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+
+.switch-page a {
+    color: var(--bright-aqua);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-page a:hover {
+    text-decoration: underline;
+}
